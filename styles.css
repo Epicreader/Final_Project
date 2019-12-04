@@ -1,0 +1,46 @@
+.starterButtons {
+   height: 3em;
+   width: 10em;
+   font-size: 3em;
+   margin-left: 2em;
+   margin-right:2em; 
+}
+.buttons{
+    display: flex; justify-content: center; 
+}
+.buttons button{
+    min-width: 6em;
+}
+button {
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    font-size: 2vw;
+    width: 11vw;
+    height: 3vw;
+}
+/* this give the hover feature */
+button:hover {
+    background-color: white;
+    color: black;
+}
+div.card {
+    background-color: rgb(40, 100, 212);
+    align-content: center;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 10px;
+    height: auto;
+    width: 21.8vw;
+}
+#sprite img {
+    height: 20vw;
+    margin: 0 auto;
+}
+html{
+    margin-left: auto;
+    margin-right: auto; 
+}
+h1{
+    text-align: center;
+}

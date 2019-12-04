@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        html {}
+    </style>
+    <script>
+
+        var num = 1;
+        poke(num);
+        function add() {
+            if (num == 807) {
+                alert("Can't go right")
+            } else {
+                num++;
+            }
+            poke(num);
+        }
+        function minus() {
+            if (num == 1) {
+                alert("Can't go left");
+            }
+            else { num--; }
+            poke(num);
+        }
+        function poke(num) {
+            fetch(`https://pokeapi.co/api/v2/pokemon/` + num + `/`)
+                .then(res => res.json())
+                .then(data => {
+                    const {
+                        ...img
+                    } = data.sprites;
+                    var selector = document.getElementById('sprite');
+                    var pokeIMG = `<img src="${img.front_default}">`;
+                    selector.innerHTML = pokeIMG;
+                    document.getElementById('name').innerHTML = `<h1>${data.name}<h1>`;
+                });
+        }
+    </script>
+</head>
+
+<body>
+    <div class="buttons">
+        <button onclick="minus();">Previous</button>
+        <div class="card">
+            <div id='name'></div>
+            <div id="sprite"></div>
+        </div>
+        <button onclick="add();">Next</button>
+    </div>
+    <button onclick="window.location.href = 'index.html';">Back</button>
+    <script src="app.js"></script>
+</body>
+
+</html>
