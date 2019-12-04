@@ -11,6 +11,11 @@
 .buttons button{
     min-width: 6em;
 }
+.back{
+    display: block;
+  margin-left: auto;
+  margin-right: auto; 
+}
 button {
     background-color: black;
     color: white;
@@ -31,7 +36,7 @@ div.card {
     margin: 0 auto;
     border-radius: 10px;
     height: auto;
-    width: 21.8vw;
+    width: 21.8em;
 }
 #sprite img {
     height: 20vw;
