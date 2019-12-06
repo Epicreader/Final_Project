@@ -8,9 +8,50 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        html {
+            background-image: url("yu-gi-oh_card.jpeg");
+        }
+    </style>
+    <script>
+
+        fetch(`https://db.ygoprodeck.com/api/v5/cardinfo.php?name=Tornado Dragon`)
+            .then(res => res.json())
+            .then(data => {
+                // const {
+                //     ...img
+                // } = data[0].card_images;
+                document.getElementById('name').innerHTML = `<h1>${data[0].name}<h1>`;
+                document.getElementById('sprite').innerHTML = `<img src="${data[0].card_images.image_url}"/>`;
+            });
+
+        async function search() {
+            let name = document.getElementById("searchBar").value;
+            fetch(`https://db.ygoprodeck.com/api/v5/cardinfo.php?name=` + name)
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data[0].img)
+                    document.getElementById('sprite').innerHTML = `<img src="${data[0][1].image_url}"/>`;
+                    document.getElementById('name').innerHTML = `<h1>${data[0].name}<h1>`;
+                });
+        }
+    </script>
 </head>
 
 <body>
+
+    <div class="card">
+        <img src="yugioh_logo.png" alt="Pokemon_Logo">
+        <div id="search">
+            <form action="">
+                <button onclick="search()" type="submit">Submit</button>
+                <input id="searchBar" placeholder="Name of card" style="font-size:1.3em;" type="text">
+            </form>
+        </div>
+        <div id='name'></div>
+        <div id="sprite"></div>
+    </div>
+
     <button class="back" onclick="window.location.href = 'index.html';">Back</button>
 
 </body>

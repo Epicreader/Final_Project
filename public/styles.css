@@ -8,6 +8,9 @@
 .buttons{
     display: flex; justify-content: center; 
 }
+.extraButtons{
+    display: flex; justify-content: center;
+}
 .buttons button{
     min-width: 6em;
 }
@@ -48,4 +51,16 @@ html{
 }
 h1{
     text-align: center;
+}
+#search {
+    display: flex; justify-content: center; 
+}
+input {
+    width: 13vw;
+ height: 2vw;
+   
+}
+#search button {
+    width: 5em;
+
 }
