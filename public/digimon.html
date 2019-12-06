@@ -4,13 +4,57 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>Digimon</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-image: url("digicard.jpeg");
+        }
+    </style>
+    <script>
+
+        var num = 1;
+        digi(num);
+        function add() {
+            if (num == 100) {
+                alert("Can't go right")
+            } else {
+                num++;
+            }
+            digi(num);
+        }
+        function minus() {
+            if (num == 1) {
+                alert("Can't go left");
+            }
+            else { num--; }
+            digi(num);
+        }
+        function digi(num) {
+            fetch(`https://digimon-api.herokuapp.com/api/digimon/id/` + num)
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data[0].img)
+                    document.getElementById('sprite').innerHTML = `<img src="${data[0].img}"/>`;
+                    document.getElementById('name').innerHTML = `<h1>${data[0].name}<h1>`;
+                });
+        }
+    </script>
 </head>
 
 <body>
+
+    <div class="buttons">
+        <button onclick="minus();">Previous</button>
+        <div class="card">
+            <img src="digimon_logo.png" alt="Pokemon_Logo">
+            <div id='name'></div>
+            <div id="sprite"></div>
+        </div>
+        <button onclick="add();">Next</button>
+    </div>
     <button class="back" onclick="window.location.href = 'index.html';">Back</button>
 
 </body>
