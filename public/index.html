@@ -8,20 +8,22 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
 </head>
 
 <body>
-    <h1>Card Collector Games</h1>
-    <div class="buttons">
-        <button class="starterButtons" onclick="window.location.href = 'pokemon.html';">Pokemon</button>
-        <button class="starterButtons" onclick="window.location.href = 'digimon.html';">Digimon</button>
-        <button class="starterButtons" onclick="window.location.href = 'yugioh.html';">Yu-Gi-Oh</button>
+    <!-- I have to add some inline styles because other wise they would get over run by bulma -->
+    <h1 style="font-size: 3em;">Card Collector Games</h1>
+    <!-- This is where I am using bulma which i like better then bootstrap -->
+    <div class="columns">
+
+        <div class="column"> <button class="starterButtons"
+                onclick="window.location.href = 'pokemon.html';">Pokemon</button></div>
+        <div class="column"><button class="starterButtons"
+                onclick="window.location.href = 'digimon.html';">Digimon</button></div>
+        <div class="column"><button class="starterButtons"
+                onclick="window.location.href = 'yugioh.html';">Yu-Gi-Oh</button></div>
     </div>
-    <div class="extraButtons">
-
-    </div>
-
-
 </body>
 
 </html>

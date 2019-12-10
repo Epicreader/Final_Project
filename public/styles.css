@@ -1,18 +1,16 @@
 .starterButtons {
-   height: 3em;
-   width: 10em;
-   font-size: 3em;
-   margin-left: 2em;
-   margin-right:2em; 
+   font-size: 3em; 
+   min-width: 6em;
+   height: 2em;
 }
 .buttons{
     display: flex; justify-content: center; 
 }
-.extraButtons{
-    display: flex; justify-content: center;
-}
 .buttons button{
     min-width: 6em;
+}
+.column{
+    text-align: center;
 }
 .back{
     display: block;
@@ -62,5 +60,4 @@ input {
 }
 #search button {
     width: 5em;
-
 }

@@ -9,16 +9,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/42c45f7b5e.js" crossorigin="anonymous"></script>
-
+    <!-- I did a lot of inline script and just enough inline styles so that it will work -->
     <style>
+        /* inline background */
         html {
             background-image: url("pokecard.jpeg");
         }
     </style>
     <script>
-
+        //this is for having a starting image and a starting number
         var num = 1;
         poke(num);
+        //these two functions increase the number or decrease the number then call in the pokemon to match that number
         function add() {
             if (num == 807) {
                 alert("Can't go right")
@@ -34,6 +36,7 @@
             else { num--; }
             poke(num);
         }
+        // This is my function that goes through and fetches a pokemon baseed on thier number
         function poke(num) {
             fetch(`https://pokeapi.co/api/v2/pokemon/` + num + `/`)
                 .then(res => res.json())
@@ -51,6 +54,7 @@
 </head>
 
 <body>
+    <!-- this helps style the buttons so that they are on the side and this also brings in the arrows from font awesome as one of my new technologies-->
     <div class="buttons">
         <button onclick="minus();"><i class="fas fa-arrow-circle-left"></i></button>
         <div class="card">

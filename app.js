@@ -1,3 +1,4 @@
+// this is where my express and server is run
 var express = require('express');
 var app = express();
 var port = 3333;

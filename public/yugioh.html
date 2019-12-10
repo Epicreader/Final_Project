@@ -8,29 +8,32 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
+    <!-- I did a lot of inline script and just enough inline styles so that it will work -->
     <style>
+        /* inline background */
         html {
             background-image: url("yu-gi-oh_card.jpeg");
         }
     </style>
     <script>
-        // $('submit').addEvent('click', function search() {
-
-        // });
+        // this brings in a starter card
         fetch(`https://db.ygoprodeck.com/api/v5/cardinfo.php?name=Tornado%20Dragon`)
             .then(res => res.json())
             .then(data => {
                 document.getElementById('name').innerHTML = `<h1>${data[0].name}<h1>`;
                 document.getElementById('sprite').innerHTML = `<img src="${data[0].card_images[0].image_url}"/>`;
             });
+        // this code is my search function that is called in when someone enters in something in the search bar this grabs the card only if you have the correct name
         async function search() {
             let name = document.getElementById("searchBar").value;
+            console.log(name);
             fetch(`https://db.ygoprodeck.com/api/v5/cardinfo.php?name=` + name)
                 .then(res => res.json())
                 .then(data => {
                     document.getElementById('name').innerHTML = `<h1>${data[0].name}<h1>`;
-                    document.getElementById('sprite').innerHTML = `<img src="${data[1].card_images.image_url}"/>`;
+                    document.getElementById('sprite').innerHTML = `<img src="${data[0].card_images[0].image_url}"/>`;
                 });
+
         }
     </script>
 </head>
@@ -40,7 +43,8 @@
     <div class="card">
         <img src="yugioh_logo.png" alt="Pokemon_Logo">
         <div id="search">
-            <form action="">
+            <!-- In the future whenever you use a button to call in and replace a part of your html from an api you have to make the form not the button call the function otherwise the form will over ride the function from the button and it won't work it will show up for a tenth of a second and then go away-->
+            <form onsubmit="search(); return false">
                 <button onclick="search()" id="submit" type="submit">Submit</button>
                 <input id="searchBar" placeholder="Name of card" style="font-size:1.3em;" type="text">
             </form>
